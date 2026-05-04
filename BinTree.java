@@ -8,7 +8,7 @@
 public class BinTree implements BinTreeInterface
 {
 	// final variable
-	protected final boolean ITERATION = true;	// iterative solution if true, recursive solution if false
+	protected final boolean ITERATION = false;	// iterative solution if true, recursive solution if false
 
 	// non-final instance variable
 	protected DBTNode root;		// 'way-in' to root node of the BinTree
@@ -306,10 +306,11 @@ public class BinTree implements BinTreeInterface
 		if (!q.isEmpty())
 		{
 			// get the head of the queue, assign it to t, and remove it from the queue
-			t = new BinTree(q.head.getData());
+			t = (BinTree)q.head.getData();
 			q.remove();
+
 			// if the value of the current tree's decoration > than that of t... 
-			if (decorate(1) > t.decorate(1))
+			if (root.getLabel() > t.root.getLabel())
 			{
 				// add a new line (\n) to s
 				s += "\n";
