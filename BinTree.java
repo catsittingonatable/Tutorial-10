@@ -280,25 +280,43 @@ public class BinTree implements BinTreeInterface
 		BinTree r;	// right branch of current tree
 
 		// if the current tree isn't empty
+		if (!isEmpty())
+		{
 			// work out how many characters are in the string since the 'last' newline character (\n), and then print the node
 			s = root.toString(s.length()-s.lastIndexOf('\n')-1);
 
 			// obtain the left branch of the current tree
+			l = getLeft();
 			// if the left branch isn't an empty tree
+			if (!l.isEmpty())
+			{
 				// add the left branch to the queue
-
+				q.add(l);
+			}
 			// obtain the right branch of the current tree
+			r = getRight();
 			// if the right branch isn't an empty tree
+			if (!r.isEmpty())
+			{
 				// add the right branch to the queue
-
+				q.add(r);
+			}
+		}
 		// if the queue isn't empty, use it to work out where to go, and go there
+		if (!q.isEmpty())
+		{
 			// get the head of the queue, assign it to t, and remove it from the queue
-
+			t = new BinTree(q.head.getData());
+			q.remove();
 			// if the value of the current tree's decoration > than that of t... 
+			if (decorate(1) > t.decorate(1))
+			{
 				// add a new line (\n) to s
-
+				s += "\n";
+			}
 			// continue processing by recursive call on t passing in s and q and adding the result to s
-
+			s += t.toStringV2(s, q);
+		}
 		// return the result
 		return s;
 	}
