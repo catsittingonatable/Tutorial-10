@@ -1,11 +1,8 @@
 // KIT107 Lab 10: BinTree
-
-import java.util.Queue;
-
 /**
  * Implementation of the BinTree ADT using DBTNodes
  *
- * @author <<Your name and student ID>>
+ * @author Callie Kirkcaldie 729546
  */
 
 public class BinTree implements BinTreeInterface
